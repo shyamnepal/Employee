@@ -1,0 +1,84 @@
+﻿@model AccountCreate
+
+@{
+    Layout = "~/Views/Shared/_loginLayout.cshtml";
+}
+
+<div class="card mb-3">
+
+    <div class="card-body">
+
+        <div class="pt-4 pb-2">
+            <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+            <p class="text-center small">Enter your personal details to create account</p>
+        </div>
+
+        <form method="post" asp-action="UserCreate" asp-controller="UserRegister" class="row g-3 needs-validation" novalidate>
+            <div class="col-12">
+                <label class="form-label">First Name</label>
+                <input  type="text" name="FirstName" class="form-control" id="firstName" required>
+                <div class="invalid-feedback">Please, enter your first name!</div>
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Last Name</label>
+                <input  type="text" name="LastName" class="form-control" id="lastName" required>
+                <div class="invalid-feedback">Please, enter your last name!</div>
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label class="form-label">Phone Number</label>
+                <input  type="number" name="PhoneNumber" class="form-control" id="yourPhoneNumber" required>
+                <div class="invalid-feedback">Please, enter your Phone Number!</div>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="col-12">
+                <label for="yourEmail" class="form-label">Your Email</label>
+                <input  type="email" name="Email" class="form-control" id="yourEmail" required>
+                <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="col-12">
+                <label for="yourUsername" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@@</span>
+                    <input type="text" name="UserName" class="form-control" id="yourUsername" required>
+                    <div class="invalid-feedback">Please choose a username.</div>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <label for="yourPassword" class="form-label">Password</label>
+                <input type="password" name="Password" class="form-control" id="yourPassword" required>
+                <div class="invalid-feedback">Please enter your password!</div>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="col-12">
+                <label for="yourPassword" class="form-label">Confirm Password</label>
+                <input type="password" name="ConfirmPassword" class="form-control" id="yourConfirmPassword" required>
+                <div class="invalid-feedback">Please enter your Confirm password!</div>
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                    <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                    <div class="invalid-feedback">You must agree before submitting.</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary w-100" type="submit">Create Account</button>
+            </div>
+            <div class="col-12">
+                <p class="small mb-0">Already have an account? <a href="@Url.Action("Index", "UserLogin")">Log in</a></p>
+            </div>
+        </form>
+
+    </div>
+</div>

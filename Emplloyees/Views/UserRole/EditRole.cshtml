@@ -1,0 +1,37 @@
+﻿@model GetAllUserWithRole
+@{
+   
+    var roleDrop = ViewData["allRole"] as List<SelectListItem>;
+
+}
+
+
+<div class="col-lg-6">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Edit the role of the users</h5>
+
+            <!-- Vertical Form -->
+            <form class="row g-3" asp-action="Edit" asp-controller="UserRole">
+                <label for="inputNanme4" class="form-label">User Name</label>
+                <input type="text" name="userName" value="@Model.UserName" readonly />
+
+                <div class="col-12">
+                    <label for="inputNanme4" class="form-label">Role Name</label>
+                    @Html.DropDownListFor(x=> x.RoleId, roleDrop,"Select Role",  new {@class="form-select"})
+                </div>
+                
+                <input type="hidden" name="OldRoleId" value="@Model.RoleId" />
+                <input type="hidden" name="UserId" value="@Model.UserId" />
+           
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form><!-- Vertical Form -->
+
+        </div>
+    </div>
+
+
+</div>

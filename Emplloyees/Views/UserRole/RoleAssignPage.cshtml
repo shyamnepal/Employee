@@ -1,0 +1,34 @@
+﻿@model DropDown
+@{
+    var drop = ViewData["allUser"] as List<SelectListItem>;
+    var roleDrop = ViewData["allRole"] as List<SelectListItem>;
+
+}
+
+
+<div class="col-lg-6">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Assign Role to the user</h5>
+
+            <!-- Vertical Form -->
+            <form class="row g-3" asp-action="RoleAssign" asp-controller="UserRole">
+                <label for="inputNanme4" class="form-label">User Name</label>
+                @Html.DropDownListFor(x=> x.UserId, drop,"Select user",  new {@class="form-select"})
+
+                <div class="col-12">
+                    <label for="inputNanme4" class="form-label">Role Name</label>
+                    @Html.DropDownListFor(x=> x.RoleId, roleDrop,"Select Role",  new {@class="form-select"})
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form><!-- Vertical Form -->
+
+        </div>
+    </div>
+
+
+</div>

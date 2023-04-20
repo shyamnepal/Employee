@@ -1,0 +1,112 @@
+﻿@model UserProfileInfo
+<form method="post" asp-controller="UserProfile" asp-action="AddProfile" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
+    <div class="row mb-3">
+        <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Profile Image</label>
+        <div class="col-md-8 col-lg-9">
+            <input type="file" name="Image" id="imageFile" style="display:none;" required/>
+            <img id="previewImage" src="#" alt="Preview Image" height="150" width="150" />
+            <div class="invalid-feedback">Please choose your Image!</div>
+            <div class="pt-2">
+                <a href="#" id="uploadProfileImageBtn" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+               <span asp-validation-for="Image" class="text-danger"></span>
+                
+                
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="row mb-3">
+        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Temporary Address</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="TemporaryAddress" type="text" class="form-control" id="fullName" required>
+            <span asp-validation-for="TemporaryAddress" class="text-danger"></span>
+            <div class="invalid-feedback">Please enter your Temporary Address!</div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="about" class="col-md-4 col-lg-3 col-form-label">Parmanent Address</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="ParmanentAddress" type="text" class="form-control" id="fullName" required>
+            <span asp-validation-for="ParmanentAddress" class="text-danger"></span>
+            <div class="invalid-feedback">Please enter your Parmanent Address!</div>
+
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="company" class="col-md-4 col-lg-3 col-form-label">City</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="City" type="text" class="form-control" id="company" required>
+            <span asp-validation-for="City" class="text-danger"></span>
+            <div class="invalid-feedback">Please enter your City!</div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="Job" class="col-md-4 col-lg-3 col-form-label">Postal code</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="Postalcode" type="text" class="form-control" id="Job" required>
+            <span asp-validation-for="PostalCode" class="text-danger"></span>
+            <div class="invalid-feedback">Please enter your Postal Code!</div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="Country" class="col-md-4 col-lg-3 col-form-label">Country</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="country" type="text" class="form-control" id="Country" required>
+            <span asp-validation-for="Country" class="text-danger"></span>
+            <div class="invalid-feedback">Please enter your Country!</div>
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label for="Phone" class="col-md-4 col-lg-3 col-form-label">State</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="State" type="text" class="form-control" id="Phone" required>
+            <span asp-validation-for="State" class="text-danger"></span>
+            <div class="invalid-feedback">Please enter your State!</div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="Email" class="col-md-4 col-lg-3 col-form-label">Date of Birth</label>
+        <div class="col-md-8 col-lg-9">
+            <input name="DateOfBirth" type="date" class="form-control" id="Email" required>
+            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            <div class="invalid-feedback">Please enter your Date Of Birth!</div>
+        </div>
+    </div>
+
+    <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Sex</legend>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Sex" id="gridRadios1" value="male" required>
+                <label class="form-check-label" for="gridRadios1">
+                    Male
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Sex" id="gridRadios2" value="female" required>
+                <label class="form-check-label" for="gridRadios2">
+                    Female
+                </label>
+                <div class="invalid-feedback">Please Select your Gender!</div>
+            </div>
+            <span asp-validation-for="Sex" class="text-danger"></span>
+           
+        </div>
+    </fieldset>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary">Add Profile</button>
+    </div>
+</form><!-- End Profile Edit Form -->
+@section Scripts{
+    <script src="~/js/addimg.js"></script>
+    <script src="~/js/previewimg.js"></script>
+}

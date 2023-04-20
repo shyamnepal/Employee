@@ -1,0 +1,29 @@
+﻿@model List<GetAllUserWithRole>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table datatable">
+    <thead>
+        <tr>
+            <th scope="col">User Id</th>
+            <th scope="col">UserName</th>
+            <th scope="col">RoleName</th>
+            <th scope="col">Action</th>
+          
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.UserId</th>
+                <td>@item.UserName</td>
+                <td>@item.RoleName</td>
+                <td><a href="@Url.Action("EditRole", "UserRole", new {UserId=@item.UserId, RoleId=item.RoleId })" class="btn btn-primary">Edit</a> <a href="@Url.Action("DeleteUserRole", "UserRole", new {UserId=@item.UserId, RoleId=item.RoleId })" class="btn btn-danger">Delete</a></td>
+            </tr>
+
+        }
+      
+    </tbody>
+</table>
+<!-- End Table with stripped rows -->
